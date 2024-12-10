@@ -14,10 +14,5 @@
       "src": "/(.*)",
       "dest": "Kasir/wsgi.py"
     }
-  ],
-  "functions": {
-    "api/**/*.py": {
-      "includeFiles": ["db.sqlite3"]
-    }
-  }
+  ]
 }
