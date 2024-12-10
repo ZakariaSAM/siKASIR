@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<div class="d-flex justify-content-center align-items-center vh-100" style="padding-top:20px">
+  <div class="d-grid gap-3 col-8 m-2 rounded p-4"  style="background-color:white;">
+    <h1 class="text-center text-primary">GUDANG</h1>
+    <form method="post">
+      {% csrf_token %}
+      {% for message in messages %}
+      {% if messages %}
+      <div class="alert alert-primary fade-out">{{ message }}</div>
+      {% endif %}
+      {% endfor %}
+      
+      <!-- Nama Barang -->
+      <div class="form-floating mb-3">
+        {{ form.nama_barang }}
+        <label for="id_nama_barang">Nama Barang</label>
+      </div>
+
+      <!-- Jumlah Barang Masuk -->
+      <div class="form-floating mb-3">
+        {{ form.jumlah_barang_masuk }}
+        <label for="id_jumlah_barang_masuk">Jumlah Barang Masuk</label>
+      </div>
+
+      <!-- Jumlah Barang Terjual -->
+      <div class="form-floating mb-3">
+        {{ form.jumlah_barang_terjual }}
+        <label for="id_jumlah_barang_terjual">Jumlah Barang Terjual</label>
+      </div>
+
+      <!-- Sisa Barang -->
+      <div class="form-floating mb-3">
+        {{ form.sisa_barang }}
+        <label for="id_sisa_barang">Sisa Barang</label>
+      </div>
+
+      <!-- Tanggal Update -->
+      <div class="form-floating mb-3">
+        {{ form.tanggal_update }}
+        <label for="id_tanggal_update">Tanggal Update</label>
+      </div>
+
+      <button class="btn btn-primary w-100 d-flex justify-content-between align-items-center" type="submit">
+        <span>Simpan</span>
+        <i class="fa-solid fa-square-pen fa-xl"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

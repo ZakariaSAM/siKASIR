@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<!--batas main-->
+<div class="container" style="padding-top: 30px">
+
+  <!-- Tabel Data Barang -->
+  <div class="container mt-5 m-2 rounded p-4"  style="background-color:white">
+    <h2 class="text-center text-primary">Data Barang</h2>
+    <table class="table table-hover">
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nama Barang</th>
+          <th scope="col">Harga</th>
+          <th scope="col">Suplier</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Nomor Telepon</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for barang in barang_list %}
+        <tr>
+          <th scope="row">{{ barang.id }}</th>
+          <td>{{ barang.nama_barang }}</td>
+          <td>{{ barang.harga }}</td>
+          <td>{{ barang.suplier }}</td>
+          <td>{{ barang.alamat }}</td>
+          <td>{{ barang.nomor_telepon }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center">Tidak ada data barang</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+ <!--KASIR -->
+ <div class="container mt-5 m-2 rounded p-4"  style="background-color:white">
+  <h2 class="text-center text-primary">Data Penjualan</h2>
+  <table class="table table-hover">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nama Barang</th>
+        <th scope="col">Harga</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for kasir in kasir_list %}
+      <tr>
+        <td>{{ kasir.id }}</td>
+        <td>{{ kasir.nama_barang }}</td>
+        <td>{{ kasir.harga }}</td>
+        <td>{{ kasir.quantity }}</td>
+        <td>{{ kasir.total }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6" class="text-center">Tidak ada data di Gudang</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+  <!-- Tabel Gudang -->
+  <div class="container mt-5 m-2 rounded p-4"  style="background-color:white">
+    <h2 class="text-center text-primary">Data Gudang</h2>
+    <table class="table table-hover">
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nama Barang</th>
+          <th scope="col">Jumlah Barang Masuk</th>
+          <th scope="col">Jumlah Barang Terjual</th>
+          <th scope="col">Sisa Barang</th>
+          <th scope="col">Tanggal Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for gudang in gudang_list %}
+        <tr>
+          <td>{{ gudang.id }}</td>
+          <td>{{ gudang.nama_barang }}</td>
+          <td>{{ gudang.jumlah_barang_masuk }}</td>
+          <td>{{ gudang.jumlah_barang_terjual }}</td>
+          <td>{{ gudang.sisa_barang }}</td>
+          <td>{{ gudang.tanggal_update }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center">Tidak ada data di Gudang</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+  
+  <!--batas main-->
+</div>
+
+{% endblock %}

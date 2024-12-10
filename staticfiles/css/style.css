@@ -1,0 +1,83 @@
+/* static/css/style.css */
+/* Navbar Brand */
+body {
+  background: url("../images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: #0d6efd;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Navbar Links */
+.nav-link {
+  color: black;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #0d6efd;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 1000px) {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #0d6efd;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+/*main*/
+
+.fade-out {
+  animation: fadeOut 10s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+

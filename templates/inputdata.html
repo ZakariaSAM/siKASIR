@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100" style="padding-top:20px">
+  <div class="d-grid gap-3 col-8 m-2 rounded p-4"  style="background-color:white;">
+    <h1 class="text-center text-primary">INPUT DATA</h1>
+    <form method="post">
+      {% csrf_token %}
+      {% for message in messages %}
+      {% if messages %}
+      <div class="alert alert-primary fade-out">{{ message }}</div>
+      {% endif %}
+      {% endfor %}
+      
+      <!-- Nama Barang -->
+      <div class="form-floating mb-3">
+        {{ form.nama_barang }}
+        <label for="id_nama_barang">Nama Barang</label>
+      </div>
+
+      <!-- Harga -->
+      <div class="form-floating mb-3">
+        {{ form.harga }}
+        <label for="id_harga">Harga</label>
+      </div>
+
+      <!-- Suplier -->
+      <div class="form-floating mb-3">
+        {{ form.suplier }}
+        <label for="id_suplier">Suplier</label>
+      </div>
+
+      <!-- Alamat -->
+      <div class="form-floating mb-3">
+        {{ form.alamat }}
+        <label for="id_alamat">Alamat</label>
+      </div>
+
+      <!-- Nomor Telepon -->
+      <div class="form-floating mb-3">
+        {{ form.nomor_telepon }}
+        <label for="id_nomor_telepon">Nomor Telepon</label>
+      </div>
+
+    
+      <button
+        class="btn btn-primary w-100 d-flex justify-content-between align-items-center"
+        type="submit"
+      >
+        <span>Simpan</span>
+        <i class="fa-solid fa-square-pen fa-xl"></i>
+      </button>
+    </form>
+  </div>
+</div>
+ {% endblock %}
