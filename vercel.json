@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "SiteServeWSGI/wsgi.py",
+      "src": "Kasir/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
@@ -12,7 +12,12 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "SiteServeWSGI/wsgi.py"
+      "dest": "Kasir/wsgi.py"
     }
-  ]
+  ],
+  "functions": {
+    "api/**/*.py": {
+      "includeFiles": ["db.sqlite3"]
+    }
+  }
 }
