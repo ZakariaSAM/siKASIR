@@ -1,21 +1,23 @@
 {
-    "builds": [
-      {
-        "src": "Kasir/wsgi.py", 
-        "use": "@vercel/python",
-        "config": {
-          "maxLambdaSize": "15mb",
-          "runtime": "python3.11.3"
-        }
+  "builds": [
+    {
+      "src": "Kasir/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.11"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "Kasir/wsgi.py"
-      }
-    ],
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "Kasir/wsgi.py"
+    }
+  ],
+  "functions": {
+    "api/**/*.py": {
+      "includeFiles": ["db.sqlite3"]
+    }
   }
-
- 
-  
+}
